@@ -2,7 +2,7 @@ import React from 'react'
 
 function Missing() {
   return (
-    <main>
+    <main className='About'>
         <h1>Missing</h1>
     </main>
   )

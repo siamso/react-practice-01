@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Feed from './Feed.js';
 
-function Home() {
+function Home({posts}) {
   return (
-    <main>
-        <h1>Home</h1>
+    <main className='Home'>
+      {posts.length ? (
+        <Feed
+          posts={posts}
+        />
+      ) : (
+        <p style={{marginTop: '2rem'}}>
+          No posts to Show
+        </p>
+      )}
     </main>
   )
 }
