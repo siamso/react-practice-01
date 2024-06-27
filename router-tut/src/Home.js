@@ -1,18 +1,12 @@
 import React from 'react';
 import Feed from './Feed.js';
 
-function Home({posts}) {
+function Home({posts, isLoading, fetchError}) {
   return (
     <main className='Home'>
-      {posts.length ? (
-        <Feed
-          posts={posts}
-        />
-      ) : (
-        <p style={{marginTop: '2rem'}}>
-          No posts to Show
-        </p>
-      )}
+      {isLoading && <p className='statusMsg'>Loading posts...</p>}
+      {!isLoading && fetchError && <p className='statusMsg' style={{color:'red'}}>{fetchError}</p>}
+      {!isLoading && !fetchError && (posts.length ? <Feed posts = {posts}/> : <p className='statusMsg'>No posts to display.</p>)}
     </main>
   )
 }
