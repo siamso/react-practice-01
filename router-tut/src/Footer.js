@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { useStoreState } from 'easy-peasy';
 
 function Footer() {
+  const postCount = useStoreState((state) => state.postCount);
   return (
     <footer>
-        <h1>Footer</h1>
+        <p>{`${postCount} Blog Posts`}</p>
+
     </footer>
   )
 }
