@@ -1,18 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { StoreProvider } from 'easy-peasy';
 import store from './store.js';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <StoreProvider store={store}>
       <Router>
-        <Route path='/' component={App} />
+        <Routes>
+          <Route path='/*' element={<App/>} />
+        </Routes>
       </Router>
     </StoreProvider>
   </React.StrictMode>,
-  document.getElementById('root')
 )

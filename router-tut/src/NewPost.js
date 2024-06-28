@@ -1,10 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import { useStoreState, useStoreActions, action } from 'easy-peasy';
 
 function NewPost() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const posts = useStoreState((state) => state.posts);
   const postTitle = useStoreState((state) => state.postTitle);
   const postBody = useStoreState((state) => state.postBody);
@@ -19,7 +19,7 @@ function NewPost() {
     const datetime = format(new Date(), 'MMMM dd, yyyy pp');
     const newPost = {id, title: postTitle, datetime, body: postBody};
     savePost(newPost);
-    history.push('/');
+    navigate('/');
   }
 
   return (
