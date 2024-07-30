@@ -1,10 +1,10 @@
-import Counter from "./components/Counter";
+import PostsList from "./components/PostsList";
 
 function App() {
   return (
     <>
       <main>
-        <Counter />
+        <PostsList />
       </main>
     </>
   );
